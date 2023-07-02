@@ -1,5 +1,6 @@
 class ProductManager {
   constructor() {
+    this.path = '';
     this.products = [];
     this.nextProductId = 1;
   }
@@ -72,6 +73,24 @@ class ProductManager {
 const productManager = new ProductManager();
 
 // Agregar un nuevo producto.
+productManager.addProduct({
+  title: 'Producto 1',
+  description: 'Descripción del producto 1',
+  price: 999.99,
+  thumbnail: 'ruta/imagenProducto1.jpg',
+  code: 'ABC123',
+  stock: 10
+});
+
+productManager.addProduct({
+  title: 'Producto 2',
+  description: 'Descripción del producto 2',
+  price: 100.50,
+  thumbnail: 'ruta/imagenProducto2.jpg',
+  code: 'ABC124',
+  stock: 7
+});
+
 productManager.addProduct({
   title: 'Producto 3',
   description: 'Descripción del producto 3',
