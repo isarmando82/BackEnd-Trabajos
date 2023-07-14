@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Producto 1",
+    "description": "Descripción del producto 1",
+    "price": 999.99,
+    "thumbnail": "ruta/imagenProducto1.jpg",
+    "code": "ABC123",
+    "stock": 10,
+    "id": 1
+  },
+  {
+    "title": "Producto 2",
+    "description": "Descripción del producto 2",
+    "price": 100.5,
+    "thumbnail": "ruta/imagenProducto2.jpg",
+    "code": "ABC124",
+    "stock": 7,
+    "id": 2
+  },
+  {
+    "title": "Producto 3",
+    "description": "Descripción del producto 3",
+    "price": 100.5,
+    "thumbnail": "ruta/imagenProducto3.jpg",
+    "code": "ABC125",
+    "stock": 7,
+    "id": 3
+  }
+]
