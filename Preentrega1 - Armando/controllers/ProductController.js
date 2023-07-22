@@ -1,6 +1,6 @@
-import ProductManager from '../ProductManager.js';
+import ProductManager from '../managers/ProductManager.js';
 
-const productManager = new ProductManager('products.json');
+const productManager = new ProductManager('../Preentrega1 - Armando/data/products.json');
 
 class ProductController {
   getAllProducts(req, res) {
