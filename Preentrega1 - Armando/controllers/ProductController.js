@@ -29,9 +29,11 @@ class ProductController {
   addProduct(req, res) {
     const product = req.body;
 
-    if (!product.title || !product.description || !product.price || !product.code || !product.status || !product.stock || !product.category) {
-      res.status(400).json({ message: 'Todos los campos del producto son obligatorios.' });
+    if (!product.title || !product.description || !product.price || !product.code || !product.stock || !product.category) {
+      res.status(400).json({ message: 'Todos los campos obligatorios del producto deben estar completos.' });
     } else {
+      product.thumbnails = product.thumbnails || []; 
+      product.status = product.status === undefined ? true : product.status; 
       productManager.addProduct(product);
       res.status(201).json({ message: 'Producto agregado correctamente' });
     }
@@ -40,8 +42,9 @@ class ProductController {
   updateProduct(req, res) {
     const productId = req.params.pid;
     const updatedFields = req.body;
+    const providedFields = Object.keys(updatedFields);
 
-    if (!updatedFields.title && !updatedFields.description && !updatedFields.price && !updatedFields.code && !updatedFields.status && !updatedFields.stock && !updatedFields.category) {
+    if (providedFields.length === 0) {
       res.status(400).json({ message: 'Debes proporcionar al menos un campo para actualizar el producto.' });
     } else {
       productManager.updateProduct(productId, updatedFields);
@@ -57,3 +60,4 @@ class ProductController {
 }
 
 export default ProductController;
+

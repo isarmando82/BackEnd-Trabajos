@@ -12,13 +12,14 @@ class ProductManager {
     try {
       const data = await fs.promises.readFile(this.path, 'utf8');
       this.products = JSON.parse(data);
+
+      if (!Array.isArray(this.products)) {
+        this.products = [];
+      }
+
       if (this.products.length > 0) {
         const lastProduct = this.products[this.products.length - 1];
         this.nextProductId = lastProduct.id + 1;
-      }
-      
-      if (!Array.isArray(this.products)) {
-        this.products = [];
       }
     } catch (err) {
       console.log('Error al cargar el archivo de productos:', err.message);
@@ -47,6 +48,8 @@ class ProductManager {
     }
 
     product.id = this.nextProductId++;
+    product.status = product.status === undefined ? true : product.status;
+    product.thumbnails = product.thumbnails || []; 
     this.products.push(product);
     this.saveProducts();
   }
@@ -112,7 +115,6 @@ class ProductManager {
       product.description &&
       product.price &&
       product.code &&
-      product.status &&
       product.stock &&
       product.category
     );
