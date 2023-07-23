@@ -1,6 +1,6 @@
 import CartManager from '../managers/CartManager.js';
 
-const cartManager = new CartManager('../Preentrega1 - Armando/data/cart.json');
+const cartManager = new CartManager('../Preentrega1 - Armando/src/data/cart.json');
 
 class CartController {
   createCart(req, res) {
