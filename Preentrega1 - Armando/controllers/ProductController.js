@@ -28,15 +28,25 @@ class ProductController {
 
   addProduct(req, res) {
     const product = req.body;
-    productManager.addProduct(product);
-    res.status(201).json({ message: 'Producto agregado correctamente' });
+
+    if (!product.title || !product.description || !product.price || !product.code || !product.status || !product.stock || !product.category) {
+      res.status(400).json({ message: 'Todos los campos del producto son obligatorios.' });
+    } else {
+      productManager.addProduct(product);
+      res.status(201).json({ message: 'Producto agregado correctamente' });
+    }
   }
 
   updateProduct(req, res) {
     const productId = req.params.pid;
     const updatedFields = req.body;
-    productManager.updateProduct(productId, updatedFields);
-    res.json({ message: 'Producto actualizado correctamente' });
+
+    if (!updatedFields.title && !updatedFields.description && !updatedFields.price && !updatedFields.code && !updatedFields.status && !updatedFields.stock && !updatedFields.category) {
+      res.status(400).json({ message: 'Debes proporcionar al menos un campo para actualizar el producto.' });
+    } else {
+      productManager.updateProduct(productId, updatedFields);
+      res.json({ message: 'Producto actualizado correctamente' });
+    }
   }
 
   deleteProduct(req, res) {

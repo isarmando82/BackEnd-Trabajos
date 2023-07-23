@@ -16,7 +16,7 @@ class ProductManager {
         const lastProduct = this.products[this.products.length - 1];
         this.nextProductId = lastProduct.id + 1;
       }
-      // Asegúrate de que this.products siempre sea un array
+      
       if (!Array.isArray(this.products)) {
         this.products = [];
       }

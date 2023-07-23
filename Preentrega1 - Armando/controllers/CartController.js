@@ -23,6 +23,17 @@ class CartController {
     const cartId = req.params.cid;
     const productId = req.params.pid;
     const quantity = req.body.quantity;
+
+    const cart = cartManager.carts[cartId];
+    if (!cart) {
+      return res.status(404).json({ message: 'Carrito no encontrado' });
+    }
+
+    const product = productManager.getProductById(productId);
+    if (!product) {
+      return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+
     cartManager.addProductToCart(cartId, productId, quantity);
     res.json({ message: 'Producto agregado al carrito correctamente' });
   }
@@ -30,10 +41,20 @@ class CartController {
   deleteProductFromCart(req, res) {
     const cartId = req.params.cid;
     const productId = req.params.pid;
+
+    const cart = cartManager.carts[cartId];
+    if (!cart) {
+      return res.status(404).json({ message: 'Carrito no encontrado' });
+    }
+
+    const product = productManager.getProductById(productId);
+    if (!product) {
+      return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+
     cartManager.deleteProductFromCart(cartId, productId);
     res.json({ message: 'Producto eliminado del carrito correctamente' });
   }
-
 
   getAllCarts(req, res) {
     const allCarts = cartManager.getAllCarts();
@@ -42,6 +63,7 @@ class CartController {
 }
 
 export default CartController;
+
 
 
 
