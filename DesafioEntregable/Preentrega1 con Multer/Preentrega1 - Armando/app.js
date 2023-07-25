@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json());
 
 // Middleware para carpetas estaticas
-app.use(express.static('./src/public'))
-//app.use(express.static(__dirname + '/public'))
+//app.use(express.static('./src/public'))
+app.use(express.static(__dirname + '/public'))
 
 // Rutas para productos
 app.use('/api/products', productRouter);
