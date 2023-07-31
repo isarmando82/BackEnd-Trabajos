@@ -10,14 +10,14 @@
     "id": 1
   },
   {
-    "title": "Producto de ejemplo 2",
-    "description": "Descripción del producto de ejemplo 2",
-    "price": 20.99,
-    "code": "ABC124",
-    "stock": 15,
+    "title": "Producto de ejemplo asdad",
+    "description": "Descripción del producto de ejemplo x",
+    "price": 19.99,
+    "code": "ABC1x",
+    "stock": 10,
     "status": true,
     "category": "Electronics",
     "thumbnails": [],
-    "id": 2
+    "id": 5
   }
 ]

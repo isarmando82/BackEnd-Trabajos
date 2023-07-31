@@ -41,5 +41,12 @@ router.post('/', upload.single('thumbnail'), (req, res) => {
 router.put('/:pid', productController.updateProduct);
 router.delete('/:pid', productController.deleteProduct);
 
+
+
+
+
+
+
+
 export default router;
 

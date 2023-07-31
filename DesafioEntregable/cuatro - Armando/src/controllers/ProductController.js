@@ -1,8 +1,14 @@
+// productController.js
 import ProductManager from '../managers/ProductManager.js';
 
-const productManager = new ProductManager('../Preentrega1 - Armando/src/data/products.json');
+const productManager = new ProductManager('../cuatro - Armando/src/data/products.json');
 
 class ProductController {
+  // Agregar un constructor para recibir la instancia del servidor de Socket.IO
+  constructor(io) {
+    this.io = io;
+  }
+
   getAllProducts(req, res) {
     const limit = req.query.limit;
     const products = productManager.getProducts();
@@ -35,6 +41,10 @@ class ProductController {
       product.thumbnails = product.thumbnails || []; 
       product.status = product.status === undefined ? true : product.status; 
       productManager.addProduct(product);
+
+      // Emitir evento newProduct al agregar un producto a través del servidor de Socket.IO
+      this.io.emit('newProduct', productManager.getProducts());
+
       res.status(201).json({ message: 'Producto agregado correctamente' });
     }
   }
@@ -55,6 +65,10 @@ class ProductController {
   deleteProduct(req, res) {
     const productId = req.params.pid;
     productManager.deleteProduct(productId);
+
+    // Emitir evento deleteProduct al eliminar un producto a través del servidor de Socket.IO
+    this.io.emit('deleteProduct', productManager.getProducts());
+
     res.json({ message: 'Producto eliminado correctamente' });
   }
 }

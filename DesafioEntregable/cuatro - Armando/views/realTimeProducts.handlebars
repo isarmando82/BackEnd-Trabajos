@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Productos en Tiempo Real</title>
+</head>
+<body>
+  <h1>Lista de Productos en Tiempo Real</h1>
+  <ul id="products-list">
+    {{#each products}}
+      <li>{{this.title}} - {{this.description}} - ${{this.price}}</li>
+    {{/each}}
+  </ul>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // Escuchar eventos de actualización de productos
+    socket.on('updateProducts', (products) => {
+      const productsList = document.getElementById('products-list');
+      productsList.innerHTML = '';
+
+      products.forEach((product) => {
+        const li = document.createElement('li');
+        li.textContent = `${product.title} - ${product.description} - $${product.price}`;
+        productsList.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
