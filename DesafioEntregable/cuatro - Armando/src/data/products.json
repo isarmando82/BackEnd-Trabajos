@@ -10,14 +10,25 @@
     "id": 1
   },
   {
-    "title": "Producto de ejemplo asdad",
-    "description": "Descripción del producto de ejemplo x",
+    "title": "Producto de ejemplo 44",
+    "description": "Descripción del producto de ejemplo 54",
     "price": 19.99,
-    "code": "ABC1x",
+    "code": "ABC145h",
     "stock": 10,
     "status": true,
     "category": "Electronics",
     "thumbnails": [],
-    "id": 5
+    "id": 7
+  },
+  {
+    "title": "Producto de ejemplo 444",
+    "description": "Descripción del producto de ejemplo 544",
+    "price": 19.9,
+    "code": "ABC112",
+    "stock": 10,
+    "status": true,
+    "category": "Electronics",
+    "thumbnails": [],
+    "id": 8
   }
 ]
