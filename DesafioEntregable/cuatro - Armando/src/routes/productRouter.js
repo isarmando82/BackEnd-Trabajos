@@ -2,6 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import ProductController from '../controllers/ProductController.js';
 
+
 const router = express.Router();
 const productController = new ProductController();
 
