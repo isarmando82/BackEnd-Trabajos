@@ -1,0 +1,15 @@
+<div>
+    <h1>PRODUCTOS ENVIADOS POR HTTP</h1>
+    {{#each products}}
+    <div>
+        <p>********************************************************</p>
+        <p>Title: {{this.title}}</p>
+        <p>Description: {{this.description}}</p>
+        <p>Category: {{this.category}}</p><p>Code: {{this.code}}</p>
+        <p>Price: {{this.price}}</p>
+        <p>Stock: {{this.stock}}</p> <p>Status: {{this.status}}</p>
+        <p>Id: {{this.id}}</p>
+        <p>********************************************************</p>
+    </div>
+    {{/each}}
+</div>

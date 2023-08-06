@@ -10,17 +10,6 @@
     "id": 1
   },
   {
-    "title": "Producto de ejemplo 44",
-    "description": "Descripción del producto de ejemplo 54",
-    "price": 19.99,
-    "code": "ABC145h",
-    "stock": 10,
-    "status": true,
-    "category": "Electronics",
-    "thumbnails": [],
-    "id": 7
-  },
-  {
     "title": "Producto de ejemplo 444",
     "description": "Descripción del producto de ejemplo 544",
     "price": 19.9,
@@ -30,5 +19,27 @@
     "category": "Electronics",
     "thumbnails": [],
     "id": 8
+  },
+  {
+    "title": "Producto de ejemplo 5e44",
+    "description": "Descripción del producto de ejemplo 544",
+    "price": 19.9,
+    "code": "ABC1y12",
+    "stock": 10,
+    "status": true,
+    "category": "Electronics",
+    "thumbnails": [],
+    "id": 9
+  },
+  {
+    "title": "Tablet Lenovo",
+    "description": "Descripcion de una tablet Lenovo",
+    "price": "50000",
+    "code": "ABC578",
+    "stock": "20",
+    "status": "true\n",
+    "category": "tablets",
+    "thumbnails": [],
+    "id": 10
   }
 ]

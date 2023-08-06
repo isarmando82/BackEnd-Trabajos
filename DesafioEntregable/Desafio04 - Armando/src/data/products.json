@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Producto de ejemplo w4www",
+    "description": "Descripción del producto de ejemplo 4x",
+    "price": 1999,
+    "code": "ABC142x",
+    "stock": 10,
+    "status": true,
+    "category": "Electronics",
+    "id": 1
+  },
+  {
+    "title": "Producto de ejemplo ver",
+    "description": "Descripción del producto de ejemplo 4ex",
+    "price": 1999,
+    "code": "ABC142ex",
+    "stock": 10,
+    "status": true,
+    "category": "Electronics",
+    "id": 2
+  },
+  {
+    "title": "Producto de ejemplo hver",
+    "description": "Descripción del producto de ejemjplo 4ex",
+    "price": 1999,
+    "code": "ABC14j2ex",
+    "stock": 10,
+    "status": true,
+    "category": "Electronics",
+    "id": 3
+  }
+]

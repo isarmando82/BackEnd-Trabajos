@@ -15,8 +15,11 @@ const io = new Server(server);
 
 app.engine('handlebars', handlebars.engine());
 app.set('view engine', 'handlebars');
+app.set('views', './src/views');
+
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
 app.use(express.static(__dirname + '/public'));
 
 const productManager = new ProductManager('./src/data/products.json');
@@ -56,7 +59,6 @@ io.on('connection', (socket) => {
 });
 
 app.use('/', viewRouter); 
-
 
 
 server.listen(8080, () => {
