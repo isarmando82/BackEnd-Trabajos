@@ -1,34 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Productos en Tiempo Real</title>
-</head>
-<body>
-  <h1>Lista de Productos en Tiempo Real</h1>
-  <ul id="products-list">
+<div id="productList">
+    <h1>PRODUCTOS POR WEBSOCKET</h1>
     {{#each products}}
-      <li>{{this.title}} - {{this.description}} - ${{this.price}}</li>
+    <div id="product-{{this.id}}">
+        <p>******************************************</p>
+        <p>Title: {{this.title}}</p>
+        <p>Description: {{this.description}}</p>
+        <p>Category: {{this.category}}</p><p>Code: {{this.code}}</p>
+        <p>Price: {{this.price}}</p>
+        <p>Stock: {{this.stock}}</p> <p>Status: {{this.status}}</p>
+        <p>Id: {{this.id}}</p>
+        <p>*****************************************</p>
+    </div>
     {{/each}}
-  </ul>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
-    const socket = io();
-
-    // Escuchar eventos de actualización de productos
-    socket.on('updateProducts', (products) => {
-      const productsList = document.getElementById('products-list');
-      productsList.innerHTML = '';
-
-      products.forEach((product) => {
-        const li = document.createElement('li');
-        li.textContent = `${product.title} - ${product.description} - $${product.price}`;
-        productsList.appendChild(li);
-      });
-    });
-  </script>
-</body>
-</html>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

@@ -1,45 +1,32 @@
 [
   {
-    "title": "Producto de ejemplo 1",
-    "description": "Descripción del producto de ejemplo 1",
-    "price": 19.99,
-    "code": "ABC123",
+    "title": "Producto de ejemplo w4www",
+    "description": "Descripción del producto de ejemplo 4x",
+    "price": 1999,
+    "code": "ABC142x",
     "stock": 10,
     "status": true,
     "category": "Electronics",
     "id": 1
   },
   {
-    "title": "Producto de ejemplo 444",
-    "description": "Descripción del producto de ejemplo 544",
-    "price": 19.9,
-    "code": "ABC112",
+    "title": "Producto de ejemplo ver",
+    "description": "Descripción del producto de ejemplo 4ex",
+    "price": 1999,
+    "code": "ABC142ex",
     "stock": 10,
     "status": true,
     "category": "Electronics",
-    "thumbnails": [],
-    "id": 8
+    "id": 2
   },
   {
-    "title": "Producto de ejemplo 5e44",
-    "description": "Descripción del producto de ejemplo 544",
-    "price": 19.9,
-    "code": "ABC1y12",
+    "title": "Producto de ejemplo hver",
+    "description": "Descripción del producto de ejemjplo 4ex",
+    "price": 1999,
+    "code": "ABC14j2ex",
     "stock": 10,
     "status": true,
     "category": "Electronics",
-    "thumbnails": [],
-    "id": 9
-  },
-  {
-    "title": "Tablet Lenovo",
-    "description": "Descripcion de una tablet Lenovo",
-    "price": "50000",
-    "code": "ABC578",
-    "stock": "20",
-    "status": "true\n",
-    "category": "tablets",
-    "thumbnails": [],
-    "id": 10
+    "id": 3
   }
 ]

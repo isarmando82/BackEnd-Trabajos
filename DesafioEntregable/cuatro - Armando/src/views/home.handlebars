@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Productos</title>
-</head>
-<body>
-  <h1>Lista de Productos</h1>
-  <ul>
+<div>
+    <h1>PRODUCTOS ENVIADOS POR HTTP</h1>
     {{#each products}}
-      <li>{{this.title}} - {{this.description}} - ${{this.price}}</li>
+    <div>
+        <p>********************************************************</p>
+        <p>Title: {{this.title}}</p>
+        <p>Description: {{this.description}}</p>
+        <p>Category: {{this.category}}</p><p>Code: {{this.code}}</p>
+        <p>Price: {{this.price}}</p>
+        <p>Stock: {{this.stock}}</p> <p>Status: {{this.status}}</p>
+        <p>Id: {{this.id}}</p>
+        <p>********************************************************</p>
+    </div>
     {{/each}}
-  </ul>
-</body>
-</html>
+</div>
