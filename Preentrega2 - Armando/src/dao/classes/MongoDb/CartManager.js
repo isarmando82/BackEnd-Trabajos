@@ -24,6 +24,16 @@ export default class CartManager {
         }
     }
 
+    async getAllCartIds() {
+        try {
+            const carts = await CartModel.find({}, '_id'); // Consulta para obtener solo los IDs
+            return carts.map(cart => cart._id);
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
+    }
+
     async addProduct (cid, pid) {
         try {
             let cart = await CartModel.findById(cid)

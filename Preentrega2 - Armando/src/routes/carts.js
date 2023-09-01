@@ -12,6 +12,14 @@ router.post('/', async (req, res)=>{
     res.status(201).send('New Cart created')
 })
 
+router.get('/', async (req, res) => {
+    // Obtener una lista de IDs de carritos disponibles
+    const cartIds = await cartManager.getAllCartIds(); 
+
+    res.status(200).send({ cartIds });
+});
+
+
 router.get('/:cid', async (req, res)=>{
     //mostrar el array de productos del carrito seleccionado
     const { cid } = req.params
