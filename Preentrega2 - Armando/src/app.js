@@ -1,27 +1,28 @@
-import express, { json, urlencoded } from "express";
-import handlebars from "express-handlebars";
-import useRouter from "./routes/index.js"
-import dbConnection from "./config/connectionDB.js";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import express from "express"
+import productsRoutes from './routes/products.routes.js'
+import cartsRoutes from './routes/carts.routes.js'
+import viewsRoutes from './routes/views.routes.js'
+import __dirname from "./utils.js"
+import handlebars from "express-handlebars"
+import { connectMongoDB } from "./db.js"
 
-const app = express();
-const PORT = 8080;
-app.use(json());
-app.use(urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/public"));
+const app = express()
+const PORT = 8080
 
-app.engine("handlebars", handlebars.engine());
-app.set("views", __dirname + "/views");
-app.set("view engine", "handlebars");
+app.engine("handlebars", handlebars.engine())
+app.set("views", __dirname+"/views")
+app.set("view engine", "handlebars")
+app.use(express.static(__dirname+"/public"))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
-const httpServer = app.listen(PORT, (err) => {
-  if (err) console.log(err);
-  console.log(`Escuchando en el puerto ${PORT}`);
-});
 
-dbConnection()
+app.use("/api/products", productsRoutes)
+app.use("/api/carts", cartsRoutes)
+app.use("/", viewsRoutes)
 
-app.use(useRouter)
+app.listen(PORT, () =>{
+    console.log(`server running at port ${PORT}`);
+})
+
+connectMongoDB()

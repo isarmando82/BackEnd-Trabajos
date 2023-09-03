@@ -1,20 +1,33 @@
-<div>
-    <h3>Products</h3>
-    {{#each products}}
+<main>
+    <h1>Productos</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Precio</th>
+            <th>Detalles</th>
+            <th>Carrito</th>
+        </tr>
+        {{#each productListJSON.docs}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.category}}</td>
+                <td>${{this.price}}</td>
+                <td><a href="/products/{{id}}">Información</a></td>
+                <td><Button>Agregar al Carrito</Button></td>
+            </tr>
+        {{/each}}    
+    </table>
     <div>
-        <ul>
-            <li>
-                <div>
-                    <p>{{title}}: {{price}}$</p>
-                    <p>Description: {{description}}</p>
-                    <p>Category: {{category}}</p>
-                    <p>Stock: {{stock}}</p>
-                   
-                </div>
-            </li>
-        </ul>
+        {{#if productListJSON.hasPrevPage}}
+        <a href={{productListJSON.prevLink}}> <-Pagina Anterior</a>
+        {{/if}}
+        <span>Pagina {{productListJSON.page}}</span>
+        {{#if productListJSON.hasNextPage}}
+        <a href={{productListJSON.nextLink}}>Pagina siguiente-></a>
+        {{/if}}
     </div>
-    {{/each}}
-</div>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</main>
 <script src="/js/index.js"></script>
