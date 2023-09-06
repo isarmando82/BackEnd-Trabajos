@@ -36,7 +36,7 @@ app.listen(9091, () => {
 
 const connectMongoDB = async ()=>{
     try {
-        await mongoose.connect('mongodb://0.0.0.0:27017/colegio?retryWrites=true&w=majority');
+        await mongoose.connect('mongodb://0.0.0.0:27017/desafiologin?retryWrites=true&w=majority');
         console.log("Conectado con exito a MongoDB usando Moongose.");
 
        

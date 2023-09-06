@@ -1,0 +1,46 @@
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+    
+}
+
+#productInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#productCard{
+    margin-top: 2rem;
+    border: 2px solid rgb(47, 22, 177);
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table, th, td {
+    border: 2px solid rgb(20, 37, 191);
+    border-collapse: collapse;
+    padding: 20px;
+  }
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table{
+    margin: 2rem 2rem 2rem 2rem;
+}
