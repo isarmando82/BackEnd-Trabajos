@@ -9,4 +9,5 @@ router.get('/:pid', Productcontroller.getProductsById)
 router.put('/:pid', Productcontroller.updateProducts)
 router.delete('/:pid', Productcontroller.deleteProducts)
 
+
 export default router

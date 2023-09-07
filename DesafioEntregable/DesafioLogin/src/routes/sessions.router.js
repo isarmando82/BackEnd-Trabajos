@@ -1,19 +1,33 @@
 import { Router } from 'express';
 import userModel from '../services/db/models/user.model.js';
 
+
 const router = Router();
 
-router.post("/register", async (req, res) => {
-    const { first_name, last_name, email, age, password,} = req.body;
-    console.log("Registrando user");
-    console.log(req.body);
-
-    const exists = await userModel.findOne({ email })
-    if (exists) {
-        return res.status(400).send({ status: 'error', message: 'usuario ya existe' })
+//Session management:
+router.get("/session", (req, res) => {
+    if (req.session.counter) {
+        req.session.counter++;
+        res.send(`Se ha visitado este sitio ${req.session.counter} veces.`);
+    } else {
+        req.session.counter = 1;
+        res.send("Bienvenido!");
     }
+});
 
+
+router.post("/register", async (req, res) => {
+    const { first_name, last_name, email, age, password } = req.body;
+
+    // Verificamos si el correo electrónico comienza con "admin" para asignar el rol correspondiente
     const isAdmin = email.startsWith('admin');
+    const role = isAdmin ? 'admin' : 'user';
+
+    const exists = await userModel.findOne({ email });
+
+    if (exists) {
+        return res.status(400).send({ status: 'error', message: 'El usuario ya existe' });
+    }
 
     const user = {
         first_name,
@@ -21,10 +35,11 @@ router.post("/register", async (req, res) => {
         email,
         age,
         password,
-        role:   isAdmin ? 'admin' : 'user'
-    }
+        role,
+    };
+
     const result = await userModel.create(user);
-    res.send({ status: "success", message: "Usuario creado con exito con ID: " + result.id })
+    res.send({ status: "success", message: "Usuario creado con éxito con ID: " + result.id });
 });
 
 router.post("/login", async (req, res) => {
@@ -37,7 +52,8 @@ router.post("/login", async (req, res) => {
     req.session.user = {
         name: `${user.first_name} ${user.last_name}`,
         email: user.email,
-        age: user.age
+        age: user.age,
+        role: user.role
     }
     res.send({ status: "success", payload: req.session.user, message: "¡Primer logueo realizado! :)" });
 });
@@ -58,6 +74,8 @@ router.get("/current", (req, res) => {
       res.status(401).json({ error: 'No hay sesión activa' });
     }
 });
+
+
 
 
 export default router;

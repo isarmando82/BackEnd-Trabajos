@@ -1,10 +1,11 @@
 import express from "express"
 import productsRoutes from './routes/products.routes.js'
 import cartsRoutes from './routes/carts.routes.js'
-import viewsRoutes from './routes/views.routes.js'
 import __dirname from "./utils.js"
 import handlebars from "express-handlebars"
 import { connectMongoDB } from "./db.js"
+import adminRoutes from '../src/routes/adminRoutes.js';
+import cookieParser from "cookie-parser"
 
 // dependencias para las sessions
 import session from 'express-session';
@@ -12,7 +13,7 @@ import FileStore from 'session-file-store'
 import MongoStore from 'connect-mongo'
 
 //import Routers
-import viewsRouter from './routes/views.route.js';
+import viewsRouter from './routes/views.router.js';
 import usersViewRouter from './routes/users.views.router.js';
 import sessionsRouter from './routes/sessions.router.js'
 
@@ -25,6 +26,7 @@ app.set("view engine", "handlebars")
 app.use(express.static(__dirname+"/public"))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(cookieParser('CoderS3cr3tC0d3'));
 
 const MONGO_URL = "mongodb://0.0.0.0:27017/desafiologin?retryWrites=true&w=majority";
 
@@ -53,9 +55,10 @@ app.use(session({
 app.use("/", viewsRouter);
 app.use("/users", usersViewRouter);
 app.use("/api/sessions", sessionsRouter);
-app.use("/api/products", productsRoutes)
-app.use("/api/carts", cartsRoutes)
-app.use("/", viewsRoutes)
+app.use("/api/products", productsRoutes);
+app.use("/api/carts", cartsRoutes);
+app.use('/admin', adminRoutes);
+
 
 app.listen(PORT, () =>{
     console.log(`server running at port ${PORT}`);
