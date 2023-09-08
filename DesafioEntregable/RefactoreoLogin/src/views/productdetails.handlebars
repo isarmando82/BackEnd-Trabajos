@@ -1,0 +1,26 @@
+<main>
+    <h1>Producto</h1>
+    {{#with productById}}
+        <div id="productCard">
+            <div>
+                <div id="productInfo">
+                 
+                    <div>
+                        <h1>Detalles</h1>
+                        <ul>
+                            <li>{{title}}</li>
+                            <li>Precio: $ {{price}}</li>
+                            <li>Code: {{code}}</li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+            <div id="productDescription">
+                <h2>Caracteristicas</h2>
+                <p>{{description}}</p>
+                
+            </div>
+        </div>
+    {{/with}}
+</main>
+<script src="/js/index.js"></script>

@@ -1,0 +1,18 @@
+<main>
+    <h1>Carrito</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+        </tr>
+        {{#each cartProductsListJSON.products}}
+            <tr>
+                <td>{{this.id.title}}</td>
+                <td>{{this.id.price}}</td>
+                <td>{{quantity}}</td>
+            </tr>
+        {{/each}}    
+    </table>
+</main>
+<script src="/js/index.js"></script>
