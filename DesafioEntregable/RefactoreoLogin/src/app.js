@@ -20,6 +20,7 @@ import MongoStore from 'connect-mongo'
 import viewsRouter from './routes/views.router.js';
 import usersViewRouter from './routes/users.views.router.js';
 import sessionsRouter from './routes/sessions.router.js'
+import githubLoginViewRouter from '../src/routes/github-login.views.router.js'
 
 const app = express()
 const PORT = 8080
@@ -66,7 +67,7 @@ app.use("/api/sessions", sessionsRouter);
 app.use("/api/products", productsRoutes);
 app.use("/api/carts", cartsRoutes);
 app.use('/admin', adminRoutes);
-
+app.use("/github", githubLoginViewRouter);
 
 app.listen(PORT, () =>{
     console.log(`server running at port ${PORT}`);

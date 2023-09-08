@@ -16,6 +16,7 @@ const schema = new mongoose.Schema({
         enum: ['admin', 'user'],
         default: 'user', 
     },
+    loggedBy: String
 });
 
 const userModel = mongoose.model(collection, schema);
