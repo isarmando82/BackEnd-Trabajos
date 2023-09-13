@@ -62,12 +62,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use("/", viewsRouter);
-app.use("/users", usersViewRouter);
 app.use("/api/sessions", sessionsRouter);
 app.use("/api/products", productsRoutes);
 app.use("/api/carts", cartsRoutes);
 app.use('/admin', adminRoutes);
 app.use("/github", githubLoginViewRouter);
+app.use("/users", usersViewRouter);
 
 app.listen(PORT, () =>{
     console.log(`server running at port ${PORT}`);

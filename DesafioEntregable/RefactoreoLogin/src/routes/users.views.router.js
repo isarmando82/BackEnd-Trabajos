@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ensureAuthenticated } from "../authMiddleware.js"; 
 
 const router = Router();
 
@@ -14,8 +15,8 @@ router.get("/logout", (req, res) => {
     res.render('login')
 });
 
-// Cuando ya tenemos una session activa con los datos del user, renderizamos la vista profile
-router.get("/", (req, res) => {
+// Aplica el middleware de autorización a la ruta "/users"
+router.get("/", ensureAuthenticated, (req, res) => {
     res.render('profile', {
         user: req.session.user
     })
