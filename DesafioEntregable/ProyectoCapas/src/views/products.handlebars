@@ -1,0 +1,45 @@
+<h1>Todos los productos</h1>
+{{#if isValid}}
+<div style="display: flex; justify-content: center; align-items:center; width:80%; flex-wrap: wrap; gap: 10px; ">
+{{#each resultProd.docs}}
+    <div style="border: 1px black solid; border-radius: 20px; padding:10px;  width:500px; height: 300px; ">
+        <h2>Title: {{{this.title}}}</h2>
+        <h3>Description: {{this.description}}</h3>
+        <h3>Price:  {{this.price}}</h3>
+        <div>{{this.thumbnail}}</div>
+        <p>Stock: {{this.stock}}</p>
+        <br>
+        <div style="display: flex; justify-content:center; align-items: center; width:100%;">
+        <button style="padding: 10px 8px; border-radius: 20px; background-color:darkolivegreen; color:azure" id={{this.id}} value= "1"  >Agregar al carrito</button>
+        </div>
+        </div>
+    <br>
+    <br>
+{{/each}}
+</div>
+<br />
+
+<div>
+    {{#if prevLink}}
+    <a href={{prevLink}}>
+            Anterior </a>
+    {{/if}}
+
+    {{!-- numero de pagina --}}
+    &nbsp;
+    {{resultProd.page}}
+    &nbsp;
+
+    {{#if nextLink}}
+    <a href={{nextLink}}>
+        Siguiente -> </a>
+    {{/if}}
+</div>
+{{else}}
+<h1>No hay productos para mostrar</h1>
+{{/if}}
+
+
+
+
+

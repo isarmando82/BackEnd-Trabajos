@@ -1,0 +1,54 @@
+
+<div>
+    <h1>Tu perfil</h1>
+    <h2>Nombre: {{user.name}}</h2>
+    <h2>Email: {{user.email}}</h2>
+    <div style="display: flex; justify-content:center; align-items: center; width:100%;">
+    <button style="padding: 10px 8px; border-radius: 20px; background-color:rgb(9, 62, 105); color:azure" id='logout'>Cerrar Sesion</button>
+    <button style="padding: 10px 8px; border-radius: 20px; background-color:rgb(17, 228, 217); color:rgb(0, 0, 0)" id='accessAdmin' value={{user.role}}>Acceso Administrador</button>
+    </div>
+
+</div>
+<br>
+<h1>Todos los productos</h1>
+{{#if isValid}}
+<div  style="display: flex; justify-content: center; align-items:center; width:80%; flex-wrap: wrap; gap: 10px; ">
+{{#each result.docs}}
+    <div style="border: 1px black solid; border-radius: 20px; padding:10px;  width:500px;  height: 300px;">
+        <h2>Title: {{{this.title}}}</h2>
+        <h3>Description: {{this.description}}</h3>
+        <h3>Price:  {{this.price}}</h3>
+        <div>{{this.thumbnail}}</div>
+        <p>Stock: {{this.stock}}</p>
+        <br>
+        <div style="display: flex; justify-content:center; align-items: center; width:100%;">
+        <button style="padding: 10px 8px; border-radius: 20px; background-color:rgb(8, 53, 136); color:azure" id={{this.id}} value= "1"  >Agregar al carrito</button>
+        </div>
+        </div>
+    <br>
+    <br>
+{{/each}}
+</div>
+<br />
+
+<div>
+    {{#if prevLink}}
+    <a href={{prevLink}}>
+            Anterior </a>
+    {{/if}}
+
+    {{!-- numero de pagina --}}
+    &nbsp;
+    {{result.page}}
+    &nbsp;
+
+    {{#if nextLink}}
+    <a href={{nextLink}}>
+        Siguiente -> </a>
+    {{/if}}
+</div>
+{{else}}
+<h1>No hay productos para mostrar</h1>
+{{/if}}
+
+<script src="/js/profile.js"></script>

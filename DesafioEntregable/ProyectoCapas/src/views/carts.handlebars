@@ -1,0 +1,40 @@
+{{#each cartProducts.docs}}
+    <h1>Tu Carrito id:{{this.id}}</h1>
+{{/each}}
+
+
+{{#if isValid}}
+
+<div>
+{{#each cartProducts.docs.0.products}}
+    <div style="border: 1px black solid; border-radius: 20px; padding:10px; width:500px; margin:10px;">
+        <h2>Title: {{{this.product.title}}}</h2>
+        <h3>Description: {{this.product.description}}</h3>
+        <h3>Price:  {{this.product.price}}</h3>
+        <h3>Quantity: {{this.quantity}}</h3>
+        <div>{{this.product.thumbnail}}</div>
+        <p>Stock: {{this.product.stock}}</p>
+    </div>
+{{/each}}
+</div>
+<br />
+
+<div>
+    {{#if prevLink}}
+    <a href={{prevLink}}>
+            Anterior </a>
+    {{/if}}
+
+    {{!-- numero de pagina --}}
+    &nbsp;
+    {{resultProd.page}}
+    &nbsp;
+
+    {{#if nextLink}}
+    <a href={{nextLink}}>
+        Siguiente -> </a>
+    {{/if}}
+</div>
+{{else}}
+<h1>No hay productos para mostrar</h1>
+{{/if}}
