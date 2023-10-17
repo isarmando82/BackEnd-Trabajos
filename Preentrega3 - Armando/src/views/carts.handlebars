@@ -1,0 +1,62 @@
+{{#each cartProducts.docs}}
+    <div style="display: flex; flex-direction:row; justify-content:center; align-items:center; gap:10px; padding:10px">
+    <div style="margin: 30px;"><h1 >Carrito</h1></div> 
+    <div style="display: flex; flex-direction:row; border:1px solid black; justify-content:center; align-items:center; gap:10px; width: auto; padding:10px">
+    <h3 id="cantArt"></h3>
+    <h3 id="cantProd">Cantidad de productos: </h3>
+    <h2 id="total"> </h2>
+    <button style="margin: 10px; padding:10px" id="finalizar" value={{this._id}}>Finalizar compra</button>
+    </div>
+    <button id="volver" style="background-color: rgb(192, 203, 199);color:rgb(4, 10, 95); margin: 40px; padding: 35px;0px">Regresar</button>
+</div>
+{{/each}}
+
+
+{{#if isValid}}
+<div style="display: flex; flex-direction:column; justify-content:center; align-items:center; gap:10px">
+{{#each cartProducts.docs.0.products}}
+    <div style="border: 1px black solid; border-radius: 20px; padding:10px; width:500px; margin:10px;">
+        <h2>Title: {{{this.product.title}}}</h2>
+        <h3>Description: {{this.product.description}}</h3>
+        <h3>Price:  {{this.product.price}}</h3>
+        <h3>Quantity: {{this.quantity}}</h3>
+        <div>{{this.product.thumbnail}}</div>
+        <p>Stock: {{this.product.stock}}</p>
+        <p>id: {{this.product._id}}</p>
+        <div style="display: flex; flex-direction:row; justify-content:space-around; align-items:center">
+            <div style="display: flex; flex-direction:row; justify-content:center; align-items:center; gap:10px; height:30px; ">
+            <button id={{this.product._id}} class="aumentar" style="height: 100%;"> + </button>
+            <p >{{this.quantity}}</p>
+            <button  class="reducir" id={{this.product._id}} style="height: 100%;" > - </button>
+            </div>
+            <button class ="eliminar"  id ={{this.product._id}} style="height: 100%; background-color:firebrick; color:aliceblue; padding: 10px;" >Eliminar Producto</button>
+        </div>
+    </div>
+{{/each}}
+</div>
+<br/>
+
+
+<div>
+    {{#if prevLink}}
+    <a href={{prevLink}}>
+            Anterior </a>
+    {{/if}}
+
+    {{!-- numero de pagina --}}
+    &nbsp;
+    {{resultProd.page}}
+    &nbsp;
+
+    {{#if nextLink}}
+    <a href={{nextLink}}>
+        Siguiente -> </a>
+    {{/if}}
+</div>
+
+{{else}}
+<h1>No hay productos para mostrar</h1>
+{{/if}}
+
+
+<script src="/js/carts.js"></script>

@@ -1,0 +1,66 @@
+<div style="display: flex; flex-direction: column;">
+    <h1 style="display: flex; justify-content:center; align-items: center; width:100%;" >Panel de control Administrador</h1>
+    <div style="display: flex; justify-content:center; align-items: center; width:100%; margin-bottom: 10px">
+    <button style="padding: 10px 8px; border-radius: 20px; background-color:rgb(9, 62, 105); color:azure" id='logout'>Cerrar Sesion</button>
+    </div>
+
+<div>
+    <form id="findProd" style="display: flex; flex-direction: column; width:400px">
+        <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+        <label for="ID">Product Id </label>
+        <input type="text" name="ID" id="pid"  style="flex: 1 1 auto;">
+        </div>   
+        <button type="submit" style="flex: 1 1 auto; padding:10px">Buscar Producto</button>
+        
+    </form>
+</div>
+
+<div >
+    <h2>Product Data</h2>
+</div>
+
+<form action="" id="prodForm" style="display: flex; flex-direction: column; width:400px">
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="ID">Product Id</label>
+    <input type="text" name="ID" id="id" style="flex: 1 1 auto;" disabled>
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="title">Product Name</label>
+    <input type="text" name="title" id="title" style="flex: 1 1 auto;">
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="description">Product Description</label>
+    <input type="text" name="description" id="description" style="flex: 1 1 auto;">
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="price">Product Price</label>
+    <input type="text" name="price" id="price" style="flex: 1 1 auto;">
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="status">Product Status</label>
+    <input type="text" name="status" id="status" style="flex: 1 1 auto;">
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="thumbnail">Product Thumbnail</label>
+    <input type="text" name="thumbnail" id="thumbnail" style="flex: 1 1 auto;">
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="code">Product Code</label>
+    <input type="text" name="code" id="code" style="flex: 1 1 auto;">
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="stock">Product Stock</label>
+    <input type="text" name="stock" id="stock" style="flex: 1 1 auto;">
+    </div>
+    <div style="display: flex; flex-direction: row; gap:10px; margin:10px; width:100%">
+    <label for="available">Product Available</label>
+    <input type="text" name="available" id="available" style="flex: 1 1 auto;">
+    </div>
+    <div  style="display: flex; flex-direction: row; gap:15px; margin-top:10px align-items:center; justify-content:center">
+    <button type="submit" id ="update" style="padding: 10px 8px; border-radius: 20px; background-color: rgb(28, 111, 167);  color:aliceblue">Actualizar</button>
+    <button type="submit" id ="create" style="padding: 10px 8px; border-radius: 20px; background-color: rgb(12, 129, 57);  color:aliceblue ">Crear Producto</button>
+    <button type="submit" id ="delete" style="padding: 10px 8px; border-radius: 20px; background-color: rgb(134, 17, 33); color:aliceblue">Borrar producto</button>
+    </div>
+</form>
+
+<script src="/js/admin.js"></script>

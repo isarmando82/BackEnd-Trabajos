@@ -1,0 +1,15 @@
+<h1>ticket: {{this.code}}</h1>
+<h2>Monto a pagar: {{this.amount}}</h2>
+<h2>Cliente: {{this.purchaser}}</h2>
+<h2>fecha de compra: {{this.createdAT}}</h2>
+
+{{#each response.docs.0.products}}
+    <div style="border: 1px black solid; border-radius: 20px; padding:10px; width:500px; margin:10px;">
+        <h2>Title: {{{this.product.title}}}</h2>
+        <h3>Description: {{this.product.description}}</h3>
+        <h3>Price:  {{this.product.price}}</h3>
+        <h3>Quantity: {{this.quantity}}</h3>
+        <div>{{this.product.thumbnail}}</div>
+        <p>Stock: {{this.product.stock}}</p>
+    </div>
+{{/each}}
