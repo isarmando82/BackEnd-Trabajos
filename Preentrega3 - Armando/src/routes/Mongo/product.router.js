@@ -4,6 +4,7 @@ import { createProduct, getProducts, getProdById, updateProdById, deleteProdById
 
 const router = express.Router();
 
+
 router.post('/createOne', createProduct );
 router.get('/', getProducts);
 router.get('/findOne/:pid', getProdById );

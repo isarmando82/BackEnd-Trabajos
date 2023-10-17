@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
 
 
-//Multer
+//Multer 
 import multer from 'multer'
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -31,15 +31,11 @@ export const uploader = multer({storage, onError: function(err, next) {
 
 
 //JWT
-
 export const PRIVATE_KEY = envCongif.jwtPrivateKey;
-
 export const generateToken = (user) => {
     return jwt.sign({user}, PRIVATE_KEY, {expiresIn: '60s'})
 };
-
 export const authToken = (req, res, next) => {
-  
     const authHeader = req.headers.authorization;
     if (!authHeader){ 
         return res.status(401).send({error: 'User not authenticated or missing token'})
@@ -48,7 +44,6 @@ export const authToken = (req, res, next) => {
     
     jwt.verify(token, PRIVATE_KEY, (error, credentials) => {
         if (error) return res.status(403).send({error: 'Invalid token, access denied'});
-       
         req.user = credentials.user;
         next();
     });

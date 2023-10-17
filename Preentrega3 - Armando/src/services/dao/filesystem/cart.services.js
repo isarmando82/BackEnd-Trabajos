@@ -24,9 +24,8 @@ export default class CartService {
     }
 
     #preparararDirectorioBase = async () => {
-      
+
         await this.#fileSystem.promises.mkdir(this.#cartDirPath, { recursive: true });
-       
         if (!this.#fileSystem.existsSync(this.#cartFilePath)) {
             await this.#fileSystem.promises.writeFile(this.#cartFilePath, '[]');
         }
@@ -36,9 +35,7 @@ export default class CartService {
     createCart = async (data) => {
         try {
             await this.#preparararDirectorioBase();
-          
             let cartsFile = await this.#fileSystem.promises.readFile(this.#cartFilePath, 'utf-8');
-       
             this.#carts = JSON.parse(cartsFile);
             let id = this.#carts.length + 1
             let cart = {
@@ -49,9 +46,7 @@ export default class CartService {
             if (this.isCodeDuplicated(cart.id)) {
                 console.log("El carrito ya existe");
             }
-         
             this.#carts.push(cart);
-          
             await this.#fileSystem.promises.writeFile(this.#cartFilePath, JSON.stringify(this.#carts, null, 2));
             if (cart) {
                 return cart;
@@ -66,6 +61,7 @@ export default class CartService {
         const cid = parseInt(data._id);
         try {
             await this.#preparararDirectorioBase();
+
             let cartsFile = await this.#fileSystem.promises.readFile(this.#cartFilePath, 'utf-8');
             this.#carts = JSON.parse(cartsFile);
             let cart = this.#carts.find(cart => cart.id === cid);
@@ -93,6 +89,7 @@ export default class CartService {
                     quantity: 1
                 }; 
             if (cart) {
+             
                 const existingProduct = cart.products.find(item => item.id === productToAdd.id);
                 if (existingProduct) {
                     existingProduct.quantity += 1;
@@ -134,7 +131,7 @@ export default class CartService {
                 return cart;
             }
         } catch (error) {
-            console.error(`Error al elminar el producto al carrito: ${id}, detalle del error: ${error}`);
+            console.error(`Error al eliminar el producto al carrito: ${id}, detalle del error: ${error}`);
             throw Error(`Error al eliminar el producto al carrito: ${id}, detalle del error: ${error}`);
         }
     };
@@ -147,13 +144,14 @@ export default class CartService {
             this.#carts = JSON.parse(cartsFile);
             let cart = this.#carts.find(cart => cart.id === cid);
             if (cart) {
+            
                 cart.products.splice(0, cart.products.length);
                 await this.#fileSystem.promises.writeFile(this.#cartFilePath, JSON.stringify(this.#carts, null, 2));
                 return cart;
             }
         } catch (error) {
             console.error(`Error al vaciar el carrito: ${id}, detalle del error: ${error}`);
-            throw Error(`Error erro al vaciar el carrito: ${id}, detalle del error: ${error}`);
+            throw Error(`Error al vaciar el carrito: ${id}, detalle del error: ${error}`);
         }
     };
 };

@@ -11,8 +11,6 @@ volver.addEventListener('click', ()=>{
     window.location.replace('/users');
 })
 
-
-
 async function getCartData(cid){
     try {
         const response = await fetch(`/api/carts/search/${cid}`);
@@ -57,6 +55,7 @@ function sumarPrecio(arrayDeObjetos) {
     }, 0);
     return total;
 }
+
 for(let i = 0; i < aumentar.length; i++){
     aumentar[i].addEventListener('click', ()=>{
         fetch(`/api/carts/${finalizar.value}/products/add/${aumentar[i].id}`, {
@@ -97,7 +96,6 @@ for(let i = 0; i < eliminar.length; i++){
     })
 }
 
-
 //ticket
 finalizar.addEventListener('click', crearTicket)
 async function crearTicket() {
@@ -117,12 +115,17 @@ async function crearTicket() {
             const { payload } = result;
             if (payload) {
                 alert(`Ticket creado con éxito con el codigo ${payload._id}`);
-                location.reload();
+                window.location.replace(`/api/ticket/${payload._id}`)
             }
         } else {
-            console.error('Error al crear el ticket.');
+            alert("Stock insuficiente: no se puede crear el Ticket.");
+
         }
     } catch (error) {
-        console.error('Error al realizar la solicitud:', error);
+        if (error.message === "No hay productos con suficiente stock para crear el ticket.") {
+            alert("No se pueden crear tickets porque no hay productos con suficiente stock.");
+        } else {
+            console.error('Error al realizar la solicitud:', error);
+        }
     }
 }

@@ -21,7 +21,6 @@ async function getCartById (cartId) {
     let cartData = await CartModel.findOne({_id: cartId});
     return cartData;
 }
-
 async function sumarPrecio(arrayDeObjetos) {
     const total = arrayDeObjetos.reduce((acumulador, objeto) => {
         if (objeto.product && objeto.product.price) {
@@ -48,7 +47,7 @@ export default class TicketServices {
         for (let i = 0; i < cart.products.length; i++) {
             try {
                 if (cart.products[i].product.stock < cart.products[i].quantity) {
-                    console.log(`No hay stock suficiente para el producto id: ${cart.products[i].product._id}, el producto queda en el carrito de compras hasta que haya stock disponible`);
+                    console.log(`No hay stock suficiente para el producto id: ${cart.products[i].product._id}. Nota: El producto continua en el carrito hasta que haya stock disponible`);
                 } else {
                     productsWithStock.push(cart.products[i]);
                     await ProductModel.updateOne(
@@ -58,8 +57,13 @@ export default class TicketServices {
                     await cartServices.deleteProdInCart(cart._id, cart.products[i].product._id);
                 }
             } catch (error) {
+                
                 console.error('Error en el ciclo: ' + error.message);
             }
+        }
+
+        if (productsWithStock.length === 0) { 
+            return null;
         }
 
         const amount = await sumarPrecio(productsWithStock);
@@ -73,5 +77,17 @@ export default class TicketServices {
         
         const ticket = await TicketModel.create(ticketData);
         return ticket;
+    };
+
+    getTicket = async (id) => {
+        const ticket = await TicketModel.paginate({_id : id},{lean: true, populate: {path : 'products.product'}  });
+        if (ticket) {
+            return ticket;
+        }else{
+            return null;
+        }
     }
 }
+
+    
+        

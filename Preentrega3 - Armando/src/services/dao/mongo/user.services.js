@@ -67,7 +67,8 @@ export default class UserService {
             res.cookie('jwtCookieToken', accessToken, {
                 maxAge: 60000,  
                 httpOnly: true, 
-    });
+            })
+    };
 
 
     logout = async (cookieName, res) => {
@@ -108,4 +109,7 @@ export default class UserService {
 
 }
 
-}
+
+
+
+

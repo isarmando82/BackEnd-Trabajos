@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
-/* import dotenv from "dotenv"; */
 import envConfig from "./env.config.js";
-
-/* dotenv.config() */
-
 
 
 export default class MongoSingleton {

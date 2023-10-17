@@ -1,7 +1,5 @@
 import { productService } from "../services/factory.js";
 
-/* const services = new productService(); */
-
 export const createProduct = async (req, res) => {
     const { body } = req;
     try {

@@ -4,6 +4,7 @@ import { createTicket } from '../../controllers/ticket.controller.js';
 
 const router = express.Router();
 
+
 router.post('/', creatNewCart);
 router.get ('/search/:cid', searchCart);
 router.put('/:cid/products/add/:pid', putProductToCart);

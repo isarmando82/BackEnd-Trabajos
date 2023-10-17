@@ -34,6 +34,7 @@ export default class UserService {
     #preparararDirectorioBase = async () => {
         console.log("ingreso a preparar directorio base");
         await this.#fileSystem.promises.mkdir(this.#userDirPath, { recursive: true });
+
         if (!this.#fileSystem.existsSync(this.#userFilePath)) {
             await this.#fileSystem.promises.writeFile(this.#userFilePath, '[]');
         }; 
@@ -118,8 +119,6 @@ export default class UserService {
         let result = await productService.getAllProducts();
             return res.render('profile', result)            
     };
-
-
 
 }
 

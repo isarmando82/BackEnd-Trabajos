@@ -1,6 +1,5 @@
 import {userService} from '../services/factory.js';
 
-/* const services = new userService(); */
 
 export  const  registerController = async (req, res) => {
     const { first_name, last_name, email, age, password} = req.body;
@@ -14,6 +13,7 @@ export  const  registerController = async (req, res) => {
     const result = await userService.save(user, res);
     res.send({ status: "200", message: "Usuario creado con exito con ID: " + result.id});
 };
+
 
 export const loginController = async (req, res) => {
     try {
@@ -35,6 +35,7 @@ export const logAuthenticate = async (req, res) => {
         await userService.loginShowProducts(page, req, res)
     }
 };
+
 
 export const gitHubCallbackController = async (req, res) => {
     const user = req.user;

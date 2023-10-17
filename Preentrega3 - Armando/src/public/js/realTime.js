@@ -8,7 +8,6 @@ socketClient.on('all-products', dataProd => {
     const arrayProd = dataProd.dataProd;
     productList.innerHTML = '';
 
-
         arrayProd.forEach((product) => {
             let div = document.createElement('div');
             div.innerHTML = `

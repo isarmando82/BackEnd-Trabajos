@@ -2,7 +2,6 @@ import fs from 'fs';
 import { __dirname } from '../../../utils.js';
 import Product from './models/productModel.js';
 
-/* const product = new Product(); */
 
 export default class ProductServices {
     #products;
@@ -103,7 +102,7 @@ export default class ProductServices {
             return product;
 
         } catch (error) {
-            console.error(`Error al actualizar el producto con id: ${id}, detalle del error: ${error}`);
+            console.error(`Error al actualizar el producto id: ${id}, detalle del error: ${error}`);
         }
     }
 
@@ -124,7 +123,7 @@ export default class ProductServices {
             }
 
         } catch (error) {
-            console.error(`Error al eliminar el producto con id: ${id}, detalle del error: ${error}`);
+            console.error(`Error al eliminar el producto id: ${id}, detalle del error: ${error}`);
         }
 
     }

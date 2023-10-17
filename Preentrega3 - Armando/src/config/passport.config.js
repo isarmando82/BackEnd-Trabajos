@@ -6,11 +6,11 @@ import userModel from "../services/dao/mongo/models/userModel.js";
 import {PRIVATE_KEY } from "../utils.js";
 
 
-
 const JwtStrategy = jwtStrategy.Strategy;
 const ExtractJwt = jwtStrategy.ExtractJwt;
 
 const initializePassport = () => {   
+    
     passport.use('jwt', new JwtStrategy(
         {  jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),
             secretOrKey: PRIVATE_KEY,
@@ -23,6 +23,7 @@ const initializePassport = () => {
                 return done(error);
             }
         }));
+
 
     passport.use('github',new GitHubStrategy({
         clientID: envCongif.gitHubClientId,
