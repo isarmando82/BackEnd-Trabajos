@@ -1,0 +1,43 @@
+<h1>Registrar Usuario</h1>
+<h2>Permite ingresar un Usuario al Sistema</h2>
+<hr>
+<form id="formRegistro">
+<div class="container">
+
+    
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th colspan="2">Datos del Usuario</th>
+            </tr>
+            <tr>
+                <td>Nombre</td>
+                <td><input type="text" class="form form-control" name="first_name" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Apellido</td>
+                <td><input type="text" class="form form-control" name="last_name" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>E-Mail</td>
+                <td><input type="text" class="form form-control" name="email" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Edad</td>
+                <td><input type="number" class="form form-control" name="age" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Contraseña</td>
+                <td><input type="password" class="form form-control" name="password" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Guardar" class="btn btn-success"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><p>Si ya estás registrado, puedes <a href="/users/login">iniciar sesión</a></p></td>
+            </tr>
+        </table>
+        </form>
+    
+
+</div>
+<script src="/js/register.js"></script>

@@ -1,0 +1,31 @@
+<h1>Iniciar Sesión</h1>
+<h2>Ingresa tu Correo y tu Contraseña</h2>
+<hr>
+<div class="container">
+    <form id="formLogin">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th colspan="2">Ingresa tus datos para Iniciar Sesión</th>
+            </tr>
+            <tr>
+                <td>E-Mail</td>
+                <td><input type="text" name="email" class="form form-control" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Contraseña</td>
+                <td><input type="password" name="password" class="form form-control"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Iniciar sesión" class="btn btn-success"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Si no tienes cuenta, <a href="/users/register">puedes registrarte aquí</a></td>
+            </tr>
+            <tr>
+                <td colspan="2">También puedes <a href="/api/sessions/github">ingresar por GitHub</a></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script src="/js/login.js"></script>
+

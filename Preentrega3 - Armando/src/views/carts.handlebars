@@ -1,0 +1,44 @@
+<h3>Visualizador de Carritos</h3>
+<h5>Desde aquí podrás ver los Items ingresados en el Carrito
+    {{#if carrito}}
+    <a href="/carts/{{cartId}}/purchase" class="btn btn-success">Comprar</a>
+    {{/if}}
+</h5>
+<hr />
+<table class="table table-bordered table-striped w-75 m-auto">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+            <th>Cantidad</th>
+            <th>Quitar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if carrito}}
+        {{#each carrito}}
+        <tr>
+            <td>{{this.product._id}}</td>
+            <td>{{this.product.code}}</td>
+            <td>{{this.product.title}}</td>
+            <td>{{this.product.description}}</td>
+            <td>{{this.product.price}}</td>
+            <td>{{this.product.stock}}</td>
+            <td>{{this.product.category}}</td>
+            <td>{{this.quantity}}</td>
+            <td><button class="btn btn-danger" onclick="removeProductFromCart('{{this.product._id}}', '{{../cartId}}')">X</button></td>
+        </tr>
+        {{/each}}
+        {{else}}
+        <tr>
+            <td colspan="9"><i>(No hay productos)</i></td>
+        </tr>
+        {{/if}}
+    </tbody>
+</table>
+<script src="/js/cart.js"></script>

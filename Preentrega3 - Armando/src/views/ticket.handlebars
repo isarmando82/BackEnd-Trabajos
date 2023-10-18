@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Datos del Ticket</h3>
+    <h4>Mostrando el Ticket {{ticket._id}} </h4>
+    <hr>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th colspan="2">Datos del Ticket</th>
+            </tr>
+            <tr>
+                <td>Fecha</td>
+                <td><strong>{{ticket.createdAt}}</strong></td>
+            </tr>
+            <tr>
+                <td>E-Mail del Usuario</td>
+                <td><strong>{{ticket.purchaser}}</strong></td>
+            </tr>
+            <tr>
+                <td>Importe</td>
+                <td><strong>$ {{ticket.amount}}</strong></td>
+            </tr>
+            <tr>
+                <td>Código</td>
+                <td><strong>{{ticket.code}}</strong></td>
+            </tr>
+        </table>
+        {{#if ticket.products}}
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Código</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Precio Un</th>
+                <th>Cantidad</th>
+            </tr>
+            {{#each ticket.products}}
+            <tr>
+                <td>{{this.product.code}}</td>
+                <td>{{this.product.title}}</td>
+                <td>{{this.product.description}}</td>
+                <td>{{this.product.category}}</td>
+                <td>$ {{this.product.price}}</td>
+                <td>{{this.quantity}}</td>
+            </tr>
+            {{/each}}
+            {{/if}}
+            {{#if ticket.notAvailableProducts}}
+            <table class="table table-bordered table-striped">
+            <tr><th colspan="6">Productos que no había Stock</th></tr>
+            <tr>
+                <th>Código</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Precio Un</th>
+                <th>Cantidad</th>
+            </tr>
+             {{#each ticket.notAvailableProducts}}
+            <tr>
+                <td>{{this.notAvailableProduct.code}}</td>
+                <td>{{this.notAvailableProduct.title}}</td>
+                <td>{{this.notAvailableProduct.description}}</td>
+                <td>{{this.notAvailableProduct.category}}</td>
+                <td>$ {{this.notAvailableProduct.price}}</td>
+                <td>{{this.quantity}}</td>
+            </tr>
+            {{/each}}
+            {{/if}}
+
+    </div>
+</body>
+
+</html>

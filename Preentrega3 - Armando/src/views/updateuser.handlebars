@@ -1,0 +1,45 @@
+<h3>Editar Usuario</h3>
+<h4>Permite Editar un Usuario</h4>
+<hr>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th colspan="2">Datos del Usuario</th>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" id="first_name" value="{{userData.first_name}}" /></td>
+        </tr>
+        <tr>
+            <td>Apellido</td>
+            <td><input type="text" id="last_name" value="{{userData.last_name}}" /></td>
+        </tr>
+        <tr>
+            <td>E-Mail</td>
+            <td><input type="text" id="email" value="{{userData.email}}" /></td>
+        </tr>
+        <tr>
+            <td>Edad</td>
+            <td><input type="number" id="age" value="{{userData.age}}" /></td>
+        </tr>
+        <tr>
+            <td>Tipo de Usuario</td>
+            <td><select id="rol">
+                    <option value="Usuario" {{#if userData.isUser }} selected {{/if}}>Usuario</option>
+                    <option value="Admin" {{#if userData.isAdmin }} selected {{/if}}>Administrador</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Nombre Completo (se genera automáticamente)</td>
+            <td><strong>{{userData.fullname}}</strong></td>
+        </tr>
+        
+        <tr>
+            <td colspan="2"><a href="/current" class="btn btn-danger">Cancelar</a>&nbsp;<button class="btn btn-success"
+                    id="btnActualizarUsuario">Guardar</button></td>
+        </tr>
+    </table>
+    <input type="hidden" id="uid" value="{{userData._id}}" />
+
+</div>
+<script src="/js/updateuser.js"></script>

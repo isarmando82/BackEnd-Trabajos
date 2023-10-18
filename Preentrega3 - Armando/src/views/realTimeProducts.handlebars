@@ -1,0 +1,47 @@
+<h3>Listado de Productos</h3>
+<h5>Muestra los Productos ingresados</h5>
+<hr />
+    <table class="table table-bordered table-striped w-75 m-auto">
+        <thead>
+            <tr>
+                <th colspan='2'>Agregar Producto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Código</td>
+                <td><input type="text" id="codigo" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Título</td>
+                <td><input type="text" id="titulo" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Descripción</td>
+                <td><input type="text" id="descripcion" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Precio</td>
+                <td><input type="text" id="precio" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Stock</td>
+                <td><input type="text" id="stock" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>Categoría</td>
+                <td><input type="text" id="categoria" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="btn btn-success" value="Guardar producto" id="btnCrearProducto"></td>
+                <td>ID del Producto: <input type="text" id="idProductoRemover" size="3" autocomplete="off"> <input type="button" class="btn btn-danger" value="Quitar Producto" id="btnQuitarProducto"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><span id="msjEstado"></span></td>
+            </tr>
+        </tbody>
+    </table>
+<br />
+<div id="tablaElementos"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>

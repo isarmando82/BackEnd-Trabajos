@@ -1,0 +1,47 @@
+<h3>Productos</h3>
+<h5>Mostrando los Productos <a href="/carts/{{user.cartId}}" class="btn btn-success" target="_blank" rel="noopener">Ver Carrito</a>&nbsp;<a href="/messages" class="btn btn-info">Ir al Chat</a></h5>
+<p>Bienvenido <b>{{user.name}}</b>, tu correo es <b>{{user.email}}</b>, tu edad <b>{{user.age}}</b> y tu rol <b>{{user.rol}}</b>&nbsp;<a href="/logout" class="btn btn-danger">Cerrar Sesión</a></p>
+<hr />
+<div class="container">
+    {{#if productos.validPage}}
+    <div class="row">
+        {{#each productos.payload}}
+        <div class="col-3">
+            <div class="card mt-2" style="min-width: 18rem;">
+                <div class="card-body">
+                    <p>Categoría: <i>{{this.category}}</i></p>
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <p class="card-text">Precio: {{this.price}} | Stock: {{this.stock}}</p>
+                    <button class="btn btn-primary" onclick="addProductoToCart('{{this._id}}', '{{../user.cartId}}');">Agregar al Carrito</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+        <div class="container">
+            <div class="row mt-2">
+                {{#if productos.hasPrevPage}}
+                <div class="col-4 mt-2">
+                    <a href="{{productos.prevLink}}" class="btn btn-info">
+                        < Anterior</a>
+                </div>
+                {{/if}}
+                <div class="col-4 mt-2">
+                    {{productos.page}} / {{productos.totalPages}}
+                </div>
+                {{#if productos.hasNextPage}}
+                <div class="col-4  mt-2">
+                    <a href="{{productos.nextLink}}" class="btn btn-info">Siguiente ></a>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div>
+        <p>La página ingresada no está en el rango válido</p>
+    </div>
+</div>
+{{/if}}
+<script src="/js/product.js"></script>

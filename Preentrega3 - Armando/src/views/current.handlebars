@@ -1,0 +1,32 @@
+<h3>Listado Actual de Usuarios</h3>
+<h4>Desde aquí puedes editar los Usuarios</h4>
+<hr />
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>E-Mail</th>
+            <th>Edad</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+        {{#if users}}
+        {{#each users}}
+        <tr>
+            <td>{{this.first_name}}</td>
+            <td>{{this.last_name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.age}}</td>
+            <td><button onclick="updateUser('{{this._id}}')" class="btn btn-primary">Editar</button></td>
+            <td><button onclick="deleteUser('{{this._id}}')" class="btn btn-danger">Eliminar</td>
+        </tr>
+        {{/each}}
+
+        {{else}}
+        <tr>
+            <td colspan="5"><i>(No hay usuarios)</i></td>
+        </tr>
+        {{/if}}
+    </table>
+</div>
+<script src="/js/current.js"></script>

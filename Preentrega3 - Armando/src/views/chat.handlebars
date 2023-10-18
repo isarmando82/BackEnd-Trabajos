@@ -1,0 +1,30 @@
+<h3>Bienvenido al Chat</h3>
+<h5>Desde aquí podrás chatear como si fuera el MSN</h5>
+<hr />
+<table class="table table-bordered table-striped w-75 m-auto">
+    <thead>
+        <tr>
+            <th colspan='2'>Agregar Mensaje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nombre de Usuario</td>
+            <td><input type="text" id="userName" autocomplete="off"></td>
+        </tr>
+        <tr>
+            <td>Mensaje</td>
+            <td><input type="text" id="message" autocomplete="off"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="button" class="btn btn-success" value="Enviar Mensaje" id="btnEnviarMensaje"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><span id="msjEstado"></span></td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<div id="tablaMensajes"></div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>
