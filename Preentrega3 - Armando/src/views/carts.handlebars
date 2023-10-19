@@ -1,11 +1,11 @@
-<h3>Visualizador de Carritos</h3>
-<h5>Desde aquí podrás ver los Items ingresados en el Carrito
+<h2 style="margin: 20px; color:blue">Carrito</h3>
+<h5 style="margin: 20px;">Productos Cargados
     {{#if carrito}}
     <a href="/carts/{{cartId}}/purchase" class="btn btn-success">Comprar</a>
     {{/if}}
 </h5>
-<hr />
-<table class="table table-bordered table-striped w-75 m-auto">
+<hr style="margin: 100px;" />
+<table  class="table table-bordered table-striped w-75 m-auto">
     <thead>
         <tr>
             <th>ID</th>
@@ -36,7 +36,7 @@
         {{/each}}
         {{else}}
         <tr>
-            <td colspan="9"><i>(No hay productos)</i></td>
+            <td colspan="9"><i>(No hay productos cargados aún)</i></td>
         </tr>
         {{/if}}
     </tbody>

@@ -1,7 +1,7 @@
 {
-  "name": "desafio7backend",
+  "name": "preentrega3backendcoderhouse",
   "version": "1.0.0",
-  "description": "Desafío 7 del Curso de BackEnd",
+  "description": "Preentrega 3 del proyecto de BackEnd de CoderHouse",
   "main": "./src/app.js",
   "type": "module",
   "scripts": {

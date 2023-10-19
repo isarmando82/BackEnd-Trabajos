@@ -1,7 +1,7 @@
-<h3>Productos</h3>
-<h5>Mostrando los Productos <a href="/carts/{{user.cartId}}" class="btn btn-success" target="_blank" rel="noopener">Ver Carrito</a>&nbsp;<a href="/messages" class="btn btn-info">Ir al Chat</a></h5>
-<p>Bienvenido <b>{{user.name}}</b>, tu correo es <b>{{user.email}}</b>, tu edad <b>{{user.age}}</b> y tu rol <b>{{user.rol}}</b>&nbsp;<a href="/logout" class="btn btn-danger">Cerrar Sesión</a></p>
-<hr />
+<h2 style="margin: 20px ; color:blue">Productos</h2>
+<h5 style="margin: 20px ;">Listado de Productos <a style="Margin: 20px ;" href="/carts/{{user.cartId}}" class="btn btn-primary" target="_blank" rel="noopener">Ver Carrito</a>&nbsp;<a href="/messages" class="btn btn-success">Ir al Chat</a></h5>
+<div style="margin-left: 50px ;"><p>Nombre <b>{{user.name}}</b>, Correo <b>{{user.email}}</b>, Edad <b>{{user.age}}</b> Rol <b>{{user.rol}}</b>&nbsp;<a href="/logout" class="btn btn-success">Cerrar Sesión</a></p>
+<hr /></div>
 <div class="container">
     {{#if productos.validPage}}
     <div class="row">

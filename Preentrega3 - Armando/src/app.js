@@ -35,13 +35,14 @@ app.use(express.static(__dirname + "/public"));
 
 app.use(session({
     store: MongoStore.create({ mongoUrl: config.mongoUrl, mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }, ttl: 10 * 60 }),
-    secret: 'pss4secretEAV',
+    secret: 'SecretPass',
     resave: false,
     saveUninitialized: true
 }));
 
 initializePassport();
 app.use(passport.initialize());
+
 app.use(passport.session());
 
 app.use("/api/products", productsRoutes);
