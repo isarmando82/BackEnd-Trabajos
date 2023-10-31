@@ -1,0 +1,33 @@
+<h3>Listado de Productos</h3>
+<h5>Muestra los Productos ingresados</h5>
+<hr />
+<table class="table table-bordered table-striped w-75 m-auto">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if productos}}
+        {{#each productos}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.category}}</td>
+        </tr>
+        {{/each}}
+        {{else}}
+        <tr>
+            <td colspan="6"><i>(No hay productos)</i></td>
+        </tr>
+        {{/if}}
+    </tbody>
+</table>
